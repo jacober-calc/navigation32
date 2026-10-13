@@ -1,0 +1,331 @@
+# STACK
+
+# REGS
+
+# FLAGS
+
+# SEED
+
+# MODE
+MTRIG: DEG
+MFMT: FIX 6
+FN= V
+
+# EQUATION LIST
+EQNPTR: 0
+EQN
+EQNEND
+
+# PROGRAM
+PTR: 0
+PGM
+  LBL C
+  INPUT S
+  INPUT B
+  INPUT R
+  INPUT C
+  INPUT V
+  XEQ Z
+  RCL R
+  RCL B
+  SIN
+  \mul;
+  STO D
+  RCL R
+  RCL B
+  COS
+  \mul;
+  STO E
+  RCL V
+  RCL C
+  SIN
+  \mul;
+  STO L
+  RCL V
+  RCL C
+  COS
+  \mul;
+  STO M
+  RCL L
+  STO N
+  RCL M
+  RCL S
+  -
+  STO O
+  RCL D
+  RCL N
+  \mul;
+  RCL E
+  RCL O
+  \mul;
+  +
+  +/-
+  RCL N
+  x\sqr;
+  RCL O
+  x\sqr;
+  +
+  \div;
+  STO Z
+  RCL D
+  RCL N
+  RCL Z
+  \mul;
+  +
+  STO I
+  RCL E
+  RCL O
+  RCL Z
+  \mul;
+  +
+  STO J
+  x\le;0?
+  XEQ X
+  RCL I
+  x\sqr;
+  RCL J
+  x\sqr;
+  +
+  SQRT
+  STO X
+  RCL I
+  RCL J
+  y,x\rarr;\theta;,r
+  R\down;
+  STO Y
+  RCL Z
+  60
+  \mul;
+  STO Z
+  XEQ Y
+  CLx
+  ENTER
+  RCL X
+  RCL Y
+  RCL Z
+  RTN
+  LBL X
+  1E-999
+  +
+  STO J
+  RTN
+  LBL Y
+  180
+  RCL Y
+  x<y?
+  RTN
+  360
+  -
+  STO Y
+  RTN
+  LBL Z
+  RCL B
+  x>0?
+  RTN
+  360
+  +
+  STO B
+  RTN
+  LBL V
+  XEQ W
+  0.8333
+  +
+  RTN
+  LBL W
+  RCL N
+  RCL E
+  RCL C
+  RCL T
+  7
+  +
+  STO S
+  24
+  \div;
+  +
+  STO Z
+  15.218425
+  \div;
+  RCL+ S
+  15
+  \mul;
+  RCL+ E
+  98.92477
+  +
+  STO S
+  -3.93
+  RCL+ Z
+  1.01461
+  \div;
+  ENTER
+  ENTER
+  0.016711
+  STO X
+  x\sqr;
+  1
+  -
+  x<>y
+  COS
+  RCL\mul; X
+  1
+  -
+  \div;
+  \theta;,r\rarr;y,x
+  RCL- X
+  RCL- X
+  y,x\rarr;\theta;,r
+  R\down;
+  77.2
+  -
+  4.647E-5
+  RCL\mul; Z
+  +
+  1
+  \theta;,r\rarr;y,x
+  x<>y
+  66.5
+  x<>y
+  \theta;,r\rarr;y,x
+  STO Z
+  R\down;
+  x<>y
+  y,x\rarr;\theta;,r
+  x<>y
+  RCL- S
+  x<>y
+  \theta;,r\rarr;y,x
+  RCL Z
+  x<>y
+  y,x\rarr;\theta;,r
+  x<>y
+  RCL- N
+  x<>y
+  \theta;,r\rarr;y,x
+  STO Z
+  R\down;
+  +/-
+  y,x\rarr;\theta;,r
+  R\down;
+  180
+  x<>y
+  -
+  RCL Z
+  ASIN
+  RTN
+  LBL Q
+  48.4284
+  STO N
+  FS? 0
+  INPUT N
+  -123.3656
+  STO E
+  FS? 0
+  INPUT E
+  INPUT D
+  12.311991
+  x<>y
+  XEQ N:DATETIME
+  STO C
+  RTN
+  LBL P
+  XEQ Q
+  INPUT T
+  \rarr;HR
+  STO T
+  RCL N
+  RCL E
+  RCL C
+  RCL T
+  XEQ W
+  R\up;
+  CLx
+  R\up;
+  CLx
+  R\up;
+  R\up;
+  x<>y
+  RTN
+  LBL S
+  XEQ Q
+  LBL B
+  16
+  STO T
+  FN= V
+  SOLVE T
+  \rarr;HMS
+  R\up;
+  CLx
+  ENTER
+  ENTER
+  R\up;
+  RTN
+  LBL R
+  XEQ Q
+  LBL A
+  4
+  STO T
+  FN= V
+  SOLVE T
+  \rarr;HMS
+  R\up;
+  CLx
+  ENTER
+  ENTER
+  R\up;
+  RTN
+  LBL D
+  XEQ Q
+  XEQ A
+  STO A
+  XEQ B
+  STO B
+  RCL A
+  x<>y
+  XEQ T:DATETIME
+  RCL D
+  x<>y
+  RCL A
+  RCL B
+  RTN
+  LBL G
+  INPUT X
+  INPUT Y
+  INPUT N
+  1
+  \theta;,r\rarr;y,x
+  INPUT E
+  R\up;
+  -
+  x<>y
+  \theta;,r\rarr;y,x
+  R\up;
+  x<>y
+  y,x\rarr;\theta;,r
+  x<>y
+  RCL- X
+  x<>y
+  \theta;,r\rarr;y,x
+  180
+  R\down;
+  R\down;
+  +/-
+  y,x\rarr;\theta;,r
+  R\down;
+  -
+  x<>y
+  ACOS
+  60
+  \mul;
+  STO D
+  x<>y
+  STO A
+  CLx
+  ENTER
+  RCL A
+  RCL D
+  RCL D
+  XEQ C:CONVERSION
+  R\up;
+  CLx
+  R\down;
+  RTN
+PGMEND
